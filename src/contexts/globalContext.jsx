@@ -2,7 +2,8 @@ import { createContext, useState } from 'react'
 
 const GlobalContext = createContext()
 
-export function GlobalContextProvider({ children }) {
+const GlobalContextProvider = ({ children }) => {
+  const [loggedIn, setLoggedIn] = useState(true)
   const [players, setPlayers] = useState([
     { id: 0, name: 'Christian' },
     { id: 1, name: 'Didier' },
@@ -17,7 +18,9 @@ export function GlobalContextProvider({ children }) {
     <GlobalContext.Provider
       value={{
         players,
-        setPlayers
+        setPlayers,
+        loggedIn,
+        setLoggedIn
       }}
     >
       {children}
@@ -26,3 +29,4 @@ export function GlobalContextProvider({ children }) {
 }
 
 export default GlobalContext
+export { GlobalContextProvider }

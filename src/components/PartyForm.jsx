@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-const PartyForm = ({ players, rounds, setRounds }) => {
+const PartyForm = ({ players, rounds, setRounds, dealer, setDealer }) => {
   const [score, setScore] = useState(0)
   const [lead, setLead] = useState(0)
   const [subLead, setSubLead] = useState(-1)
@@ -25,6 +25,7 @@ const PartyForm = ({ players, rounds, setRounds }) => {
     setLead(0)
     setSubLead(-1)
     setScore(0)
+    setDealer(dealer >= players.length - 1 ? 0 : dealer + 1)
   }
   return (
     <form className='flex my-2 w-full gap-2' onSubmit={e => handleSubmit(e)}>

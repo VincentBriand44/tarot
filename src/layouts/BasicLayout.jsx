@@ -1,11 +1,13 @@
+import { useContext } from 'react'
 import { Outlet } from 'react-router-dom'
 
 import Footer from '../components/Footer'
 import Header from '../components/Header'
+import GlobalContext from '../contexts/globalContext'
 import Login from '../routes/Login'
 
-const Basic = ({ username }) => {
-  const loggedIn = true
+const BasicLayout = ({ username }) => {
+  const { loggedIn } = useContext(GlobalContext)
 
   return (
     <div className='flex flex-col min-h-screen bg-slate-700'>
@@ -18,4 +20,4 @@ const Basic = ({ username }) => {
   )
 }
 
-export default Basic
+export default BasicLayout
